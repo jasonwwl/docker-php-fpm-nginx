@@ -4,6 +4,14 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN apt-get update -y \
     && apt-get install -y nginx git zlib1g-dev libzip-dev unzip
 
+RUN docker-php-ext-install zip
+RUN docker-php-ext-install sockets
+RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install bcmath
+RUN docker-php-ext-install opcache
+RUN docker-php-ext-install mysqli
+RUN pecl install redis && docker-php-ext-enable redis
+
 ADD run.sh /
 RUN chmod +x /run.sh
 RUN mkdir /website
