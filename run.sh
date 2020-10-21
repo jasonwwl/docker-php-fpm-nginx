@@ -1,6 +1,6 @@
 #!/bin/bash
 
-printf "\n\nStarting PHP 7.0 daemon...\n\n"
+printf "\n\nStarting PHP-FPM daemon...\n\n"
 php-fpm --daemonize
 
 printf "Starting Nginx...\n\n"
